@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Number Guessing Game – St. George's College Aruvithura</title>
+  <meta name="description" content="An interactive Number Guessing Game micro project. Guess a random number between 1 and 100 and compete on the scoreboard!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Animated background particles -->
+  <div class="bg-particles" id="bg-particles"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="college-badge">
+        <div class="badge-icon">🎓</div>
+        <div class="badge-text">
+          <span class="college-name">St. George's College Aruvithura</span>
+          <span class="dept-name">Department of Computer Applications</span>
+        </div>
+      </div>
+      <div class="project-label">Micro Project · Semester IV</div>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="main-content">
+    <!-- Game card -->
+    <section class="game-card" id="game-section">
+      <div class="game-card-header">
+        <h1 class="game-title">Number Guessing Game</h1>
+        <p class="game-subtitle">Guess a number between <span class="range-highlight">1</span> and <span class="range-highlight">100</span></p>
+      </div>
+
+      <div class="game-body">
+        <!-- Player Name -->
+        <div class="input-group" id="name-group">
+          <label class="input-label" for="player-name">Player Name</label>
+          <div class="input-wrapper">
+            <span class="input-icon">👤</span>
+            <input
+              type="text"
+              id="player-name"
+              class="game-input"
+              placeholder="Enter your name…"
+              maxlength="20"
+              autocomplete="off"
+            />
+            <button class="lock-btn" id="lock-btn" title="Lock name">🔓</button>
+          </div>
+          <p class="name-hint" id="name-hint">Enter your name and press Enter or the lock icon to start</p>
+        </div>
+
+        <!-- Guess Input -->
+        <div class="input-group" id="guess-group">
+          <label class="input-label" for="guess-input">Your Guess</label>
+          <div class="input-wrapper">
+            <span class="input-icon">🎯</span>
+            <input
+              type="number"
+              id="guess-input"
+              class="game-input"
+              placeholder="Enter your guess (1–100)"
+              min="1"
+              max="100"
+              disabled
+            />
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <button class="submit-btn" id="submit-btn" disabled>
+          <span class="btn-text">Submit Guess</span>
+          <span class="btn-loader hidden"></span>
+        </button>
+
+        <!-- Feedback area -->
+        <div class="feedback-area" id="feedback-area">
+          <div class="feedback-message" id="feedback-message"></div>
+          <div class="attempts-counter" id="attempts-counter"></div>
+        </div>
+
+        <!-- Win overlay -->
+        <div class="win-overlay hidden" id="win-overlay">
+          <div class="win-content">
+            <div class="win-emoji">🎉</div>
+            <h2 class="win-title">You got it!</h2>
+            <p class="win-sub" id="win-sub"></p>
+            <button class="play-again-btn" id="play-again-btn">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scoreboard -->
+    <section class="scoreboard-card" id="scoreboard-section">
+      <div class="scoreboard-header">
+        <h2 class="scoreboard-title">🏆 Scoreboard</h2>
+        <button class="clear-btn" id="clear-btn" title="Clear scoreboard">Clear</button>
+      </div>
+      <div class="scoreboard-body">
+        <table class="score-table" id="score-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player Name</th>
+              <th>Attempts</th>
+            </tr>
+          </thead>
+          <tbody id="score-tbody">
+            <!-- Rows injected by JS -->
+          </tbody>
+        </table>
+        <p class="empty-board-msg" id="empty-board-msg">No scores yet — be the first to play!</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Built by <strong>Albin Mathews</strong> · Semester IV · Dept. of Computer Applications</p>
+  </footer>
+
+  <script src="game.js"></script>
+</body>
+</html>
